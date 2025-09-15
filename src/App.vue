@@ -1,30 +1,26 @@
 <template>
   <div>
-    <!-- Menú -->
-    <nav class="flex gap-4 bg-gray-800 p-4 text-white">
-     <!--  <button @click="current = 'Home'" :class="btnClass('Home')">Inicio</button> -->
-
-    </nav>
-
-    <!-- Contenido dinámico -->
-    <component :is="currentComponent" />
+    <component 
+      :is="currentComponent" 
+      @changePage="current = $event" 
+    />
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed } from 'vue';
+
 import Home from './views/home.vue'
-import About from './views/Dashboard.vue'
+import Registro from './views/registro.vue'
+import Login from './views/login.vue'
+import Dashboard from './views/Dashboard.vue'
 
 const current = ref('Home')
 
 const currentComponent = computed(() => {
-  if (current.value === 'About') return About
+  if (current.value === 'Dashboard') return Dashboard
+  if (current.value === 'Registro') return Registro
+  if (current.value === 'Login') return Login
   return Home
 })
-
-const btnClass = (tab) => 
-  current.value === tab 
-    ? 'font-bold underline' 
-    : 'hover:underline'
 </script>
