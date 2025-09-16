@@ -1,11 +1,17 @@
 <template>
   <div class="dashboard">
-    <header class="header-dashboard">
-      <h1 class="header-dashboard h1">SERVICIOS PUBLICOS</h1>
-      <div class="header-dashboard p">
-        <span class="name-fis">FISCAL</span>
+    <!-- Contenedor de Servicios Públicos + Fiscal -->
+    <div class="servicios-container">
+      <!-- Servicios Públicos -->
+      <div class="servicio-publico">
+        <h1>SERVICIOS PUBLICOS</h1>
       </div>
-    </header>
+
+      <!-- Fiscal centrado -->
+      <div class="name-fis">
+        FISCAL
+      </div>
+    </div>
 
     <!-- Cuadros -->
     <div class="secciones">
@@ -13,7 +19,6 @@
         v-for="(item, index) in services"
         :key="index"
         class="seccion">
-        <div class="text-dash">{{ item.icon }}</div>
         <h2 class="text-dash">{{ item.title }}</h2>
       </div>
     </div>
@@ -23,10 +28,9 @@
 <script setup>
 const services = [
   { title: "CONSULTAS" },
-  { title: " OFICIALES" },
+  { title: "OFICIALES" },
   { title: "PETICIONES" },
   { title: "DELIGENCIAS" },
   { title: "TELEFONIA" }
- 
 ]
 </script>

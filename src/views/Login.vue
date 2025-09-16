@@ -24,6 +24,8 @@
 <script setup>
 import { ref } from 'vue'
 
+const emit = defineEmits(['changePage'])
+
 const email = ref('')
 const password = ref('')
 const mensaje = ref('')
@@ -37,7 +39,5 @@ function iniciarSesion() {
     mensaje.value = 'Has iniciado sesión correctamente.'
     emit('changePage', 'Dashboard')
   }, 1000)
-
-const emit = defineEmits(['changePage'])
 }
 </script>
